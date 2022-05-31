@@ -5,17 +5,17 @@ import "./interfaces/IBeetVault.sol";
 import "./interfaces/IVault.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
 
-/// @title SuperDepositor
+/// @title BeetsHelper
 /// @author z80 and Eidolon
-contract BeetsDepositor {
+contract BeetsHelper {
 
     using SafeERC20Upgradeable for IERC20Upgradeable;
 
     address public immutable balVault;
 
     // this will hold all the data we need to:
-    // 1. Deposit our funds into Beethoven and obtain LPs
-    // 2. Deposit those LPs into reaper and obtain vault shares
+    // 1. Deposit/Withdraw our funds into Beethoven and obtain LPs
+    // 2. Deposit/Withdraw those LPs into reaper and obtain vault shares
     // 3. Transfer those vault shares to the intended recipient
     struct VaultParams {
         IAsset[] underlyings;
@@ -42,7 +42,7 @@ contract BeetsDepositor {
         
     }
 
-    function _singleSideDeposit(VaultParams memory details, uint256 amount) internal {
+    function _singleSideDeposit(VaultParams memory details, uint256 amount) public {
         IERC20Upgradeable inputToken = IERC20Upgradeable(address(details.underlyings[details.tokenIndex]));
         inputToken.safeTransferFrom(msg.sender, address(this), amount);
         _joinPool(details.underlyings, amount, details.tokenIndex, details.beetsPoolId); // contract has lp tokens

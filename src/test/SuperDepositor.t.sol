@@ -2,7 +2,7 @@
 
 pragma solidity >=0.8.7 <0.9.0;
 
-import {SuperDepositor} from "../SuperDepositor.sol";
+import {BeetsHelper} from "../SuperDepositor.sol";
 
 import "@std/Test.sol";
 import "solmate/tokens/ERC20.sol";
@@ -16,14 +16,14 @@ contract DummyToken is ERC20 {
     }
 }
 
-contract SuperDepositorTest is Test {
+contract BeetsHelperTest is Test {
 
-    SuperDepositor depositor;
+    BeetsHelper depositor;
     DummyToken dummyToken;
 
     address balVault = address(0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce);
 
-    address alice = address(0xc5ed2333f8a2C351fCA35E5EBAdb2A82F5d254C3);
+    address roosh = address(0xdDf169Bf228e6D6e701180E2e6f290739663a784);
     address bob = address(0xbb);
 
     ERC20 usdc = ERC20(0x04068DA6C83AFCFA0e13ba15A6696662335D5B75);
@@ -36,36 +36,36 @@ contract SuperDepositorTest is Test {
 
     function setUp() public {
         console.log(unicode"🧪 Testing Depositor...");
-        depositor = new SuperDepositor(balVault);
+        depositor = new BeetsHelper(balVault);
         dummyToken = new DummyToken();
-        dummyToken.mint(alice, 100000000);
+        dummyToken.mint(roosh, 100000000);
     }
 
     // VM Cheatcodes can be found in ./lib/forge-std/src/Vm.sol
     // Or at https://github.com/foundry-rs/forge-std
     function testSetup() public {
-        assertEq(dummyToken.balanceOf(alice), 100000000);
+        assertEq(dummyToken.balanceOf(roosh), 100000000);
     }
 
     function testLogBalance() public {
-        console.log(usdc.balanceOf(alice));
+        console.log(usdc.balanceOf(roosh));
     }
 
     function testSingleSideDepositTakesTokens() public {
-        vm.startPrank(alice);
+        vm.startPrank(roosh);
         IAsset[] memory assets = new IAsset[](2);
         assets[0] = IAsset(address(usdc));
         assets[1] = IAsset(address(dai));
-        SuperDepositor.DepositParams memory deposit = SuperDepositor.DepositParams(assets,
+        BeetsHelper.VaultParams memory deposit = BeetsHelper.VaultParams(assets,
                                                                             0,
                                                                             steadybeets2,
-                                                                                   address(steadybeets2lp),
+                                                                            address(steadybeets2lp),
                                                                             address(steadybeets2crypt),
-                                                                            alice
+                                                                            roosh
                                                                             );
         usdc.approve(address(depositor), 100);
-        depositor.singleSideDeposit(deposit, 100);
-        console.log(steadybeets2crypt.balanceOf(alice));
+        depositor._singleSideDeposit(deposit, 100);
+        console.log(steadybeets2crypt.balanceOf(roosh));
     }
 
 }

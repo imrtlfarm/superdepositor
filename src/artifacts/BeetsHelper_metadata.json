@@ -17,6 +17,56 @@
 				"type": "constructor"
 			},
 			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "contract IAsset[]",
+								"name": "underlyings",
+								"type": "address[]"
+							},
+							{
+								"internalType": "uint256",
+								"name": "tokenIndex",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "beetsPoolId",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "address",
+								"name": "lpToken",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "vault",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "recipient",
+								"type": "address"
+							}
+						],
+						"internalType": "struct BeetsHelper.VaultParams",
+						"name": "details",
+						"type": "tuple"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "_singleSideDeposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "balVault",
 				"outputs": [
@@ -69,7 +119,7 @@
 								"type": "address"
 							}
 						],
-						"internalType": "struct BeetsDepositor.VaultParams",
+						"internalType": "struct BeetsHelper.VaultParams",
 						"name": "details",
 						"type": "tuple"
 					},
@@ -100,7 +150,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"SuperDepositor.sol": "BeetsDepositor"
+			"SuperDepositor.sol": "BeetsHelper"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -171,11 +221,11 @@
 			]
 		},
 		"SuperDepositor.sol": {
-			"keccak256": "0xa5f719f96bafa3e45caf4f0350b927a93f2cdd16794ffc8c2a51d232d1af94d9",
+			"keccak256": "0x6e185e215fc1352d7bf1491805c5ba0d488b2a7455e781cca640b1ef673b9406",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://6a6e728c6cb9fb7cc1d150449032477535aba3693e1e6ac22a9ade255809c57c",
-				"dweb:/ipfs/QmdrAHQgSMtimvhC55KzAYh6UW1mqygSeRiVG78JfTNbWB"
+				"bzz-raw://f548a02f368a513de152c8b414c877b3be13de41ea3e5986351d05acc524c8d0",
+				"dweb:/ipfs/QmfNemLHmAssqtnajYBC78y5x8WUH99VCsP9xHijCCNcEZ"
 			]
 		},
 		"interfaces/IAsset.sol": {
