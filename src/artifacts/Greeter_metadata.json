@@ -1,0 +1,128 @@
+{
+	"compiler": {
+		"version": "0.8.13+commit.abaa5c0e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "newGm",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "BadGm",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "GMEverybodyGM",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "_gm",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "myGm",
+						"type": "string"
+					}
+				],
+				"name": "gm",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "greeting",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "newGm",
+						"type": "string"
+					}
+				],
+				"name": "setGm",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "andreas@nascent.xyz",
+			"kind": "dev",
+			"methods": {},
+			"title": "Greeterffff",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Greeter.sol": "Greeter"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Greeter.sol": {
+			"keccak256": "0x7001cf0cdf57d51562166b7b6fba3fbc190b468896fcd8402e7717e5786bd3dc",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://150b2efb2743f21348fbdf369ca19756e3dc9d001611067270903a6a13f77a8d",
+				"dweb:/ipfs/QmWd97xACzXgLAX2tKxUcx9hgwdFTd95dSrvfXvLGAb86u"
+			]
+		}
+	},
+	"version": 1
+}
