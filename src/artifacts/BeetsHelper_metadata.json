@@ -67,6 +67,61 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "contract IAsset[]",
+								"name": "underlyings",
+								"type": "address[]"
+							},
+							{
+								"internalType": "uint256",
+								"name": "tokenIndex",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "beetsPoolId",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "address",
+								"name": "lpToken",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "vault",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "recipient",
+								"type": "address"
+							}
+						],
+						"internalType": "struct BeetsHelper.VaultParams",
+						"name": "details",
+						"type": "tuple"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountVault",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountOutput",
+						"type": "uint256"
+					}
+				],
+				"name": "_singleSideWithdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "balVault",
 				"outputs": [
@@ -221,11 +276,11 @@
 			]
 		},
 		"SuperDepositor.sol": {
-			"keccak256": "0x6e185e215fc1352d7bf1491805c5ba0d488b2a7455e781cca640b1ef673b9406",
+			"keccak256": "0x7f13f27413bad662e7e05c602e21757b952d620507faf27f3f6dc353fc198ae3",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://f548a02f368a513de152c8b414c877b3be13de41ea3e5986351d05acc524c8d0",
-				"dweb:/ipfs/QmfNemLHmAssqtnajYBC78y5x8WUH99VCsP9xHijCCNcEZ"
+				"bzz-raw://6a4d9989d4683a9a67bcb5b80878cb6bcefa8faf5e6ff1b6c2b85c74e765d7ad",
+				"dweb:/ipfs/QmW7s2UVcft593XsbMReHhrh88YP5T2ndvn3zLXvgiVz2k"
 			]
 		},
 		"interfaces/IAsset.sol": {

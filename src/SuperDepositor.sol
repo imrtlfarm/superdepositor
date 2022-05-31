@@ -49,11 +49,11 @@ contract BeetsHelper {
         _depositLPToVault(details.lpToken, details.vault, details.recipient);
     }
 
-    function _singleSideWithdraw(VaultParams memory details, uint256 amount) internal {
-        IERC20Upgradeable inputToken = IERC20Upgradeable(address(details.underlyings[details.tokenIndex]));
-        inputToken.safeTransferFrom(msg.sender, address(this), amount);
+    function _singleSideWithdraw(VaultParams memory details, uint256 amountVault, uint256 amountOutput) public {
+        IERC20Upgradeable inputToken = IERC20Upgradeable(details.vault);
+        inputToken.safeTransferFrom(msg.sender, address(this), amountVault);
         IVault(details.vault).withdrawAll();
-        _exitPool(details.underlyings, amount, details.tokenIndex, details.beetsPoolId);
+        _exitPool(details.underlyings, amountOutput, details.tokenIndex, details.beetsPoolId);
     }
     
     function _depositLPToVault(address lp, address vault, address recipient) internal {
@@ -106,9 +106,7 @@ contract BeetsHelper {
         uint256[] memory minAmountsOut = new uint256[](underlyings.length);
         minAmountsOut[tokenIndex] = amtOut;
 
-        uint256 minAmountOut = 1; // fix this later, slippage protection
-
-        bytes memory userData = abi.encode(0,minAmountsOut, minAmountOut);
+        bytes memory userData = abi.encode(0,amtOut, tokenIndex);
 
         IBeetVault.ExitPoolRequest memory request;
         request.assets = underlyings;
